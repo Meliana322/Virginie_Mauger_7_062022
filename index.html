@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les petits plats</title>
+    <!-- Bootstrap CSS → -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="sass/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <!-- logo -->
+            <img src="/assets/logo.svg" alt="Accueil">
+            <h1 class="fw-bold">Les petits plats</h1>
+        </div>
+
+
+        <form class="input-group mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Rechercher une recette"
+                    aria-label="Rechercher une recette" aria-describedby="button-addon1">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1">
+                    <img src="/assets/Search.svg" alt="Rechercher une recette">
+                </button>
+            </div>
+        </form>
+    </header>
+
+
+    <main>
+        <div class="container-fluid">
+            <section class="search-by">
+                <div>
+                    <div class="row">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ingrédients
+                            </button>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Appareils
+                            </button>
+                            <button class="btn btn-tertiary dropdown-toggle" type="button" id="dropdownMenuButton3"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ustensiles
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+    </main>
+    <!-- Bootstrap JS bundle → -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <script src="/main.js" type="module"></script>
+
+</body>
+
+</html>
