@@ -1,5 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap");
+h1 {
+  font-size: 36px !important;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 18px !important;
+}
+
+span {
+  font-size: 12px !important;
+}
+
+p {
+  font-size: 12px !important;
+}
+
+input::placeholder {
+  font-size: 18px !important;
+}
+
+button.accordion-button.collapsed {
+  background-color: #3282f7;
+  color: white;
+}
+
+#input-group1 {
+  background-color: #3282f7;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: calc(0.25rem - 1px) !important;
+}
+
+button.accordion-button.collapsed.px-0 {
+  background-color: #3282f7;
+  color: white;
+}
+
+button.accordion-button.collapsed {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.accordion-button:focus {
+  background-color: #3282f7;
+  color: white;
+  box-shadow: unset;
+}
+
+.accordion-body {
+  background-color: #3282f7;
+  color: white;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.accordion-button::after {
+  background-image: url("/assets/Vector.svg");
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #3282f7;
+  color: white;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("/assets/Vector.svg");
+}
+
+div#collapseOne {
+  background-color: #3282f7;
+}
+
+input#input-group1 {
+  color: white;
+}
+
+#ingredients {
+  overflow-x: scroll;
+  max-height: 398px;
+}
+#ingredients li {
+  padding-right: 20px;
+}
+
+.card {
+  max-width: 380px;
+  height: 364px;
+}
+.card .card-img {
+  background-color: #c7bebe;
+  height: 178px;
+  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+.card .card-body {
+  background-color: #e7e7e7;
+}
+
+.description {
+  max-height: 55px;
+}
+.description p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  line-height: 1.8vh;
+}
+
+.ingredientsRecipe {
+  line-height: 1.8vh;
+}
+
+/* Reset */
+html,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Reset End*/
 body {
-  color: red;
+  font-family: "Lato", sans-serif;
+}
+
+.header-h1 {
+  font-family: "DM Sans", sans-serif;
+  text-align: center;
+}
+
+#basic-addon1 {
+  background-color: #e7e7e7;
+  border: unset;
+}
+
+#search-field {
+  background-color: #e7e7e7;
+  border: unset;
+}
+
+.input-group {
+  height: 69px;
+}
+
+input#search-field:focus {
+  box-shadow: unset;
+}
+
+.recipes-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 60px;
 }
 
 /*# sourceMappingURL=style.css.map */

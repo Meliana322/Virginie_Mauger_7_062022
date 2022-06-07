@@ -1,0 +1,30 @@
+.card {
+  max-width: 380px;
+  height: 364px;
+
+  .card-img {
+    background-color: $color-img;
+    height: 178px;
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+  }
+  .card-body {
+    background-color: $color-quaternary;
+  }
+}
+.description {
+  max-height: 55px;
+
+  & p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    // Addition lines for 2 line or multiline ellipsis
+    display: -webkit-box !important;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    line-height: 1.8vh;
+  }
+}
+.ingredientsRecipe {
+  line-height: 1.8vh;
+}

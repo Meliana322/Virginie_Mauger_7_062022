@@ -1,0 +1,63 @@
+@import "./../abstracts/variables";
+button.accordion-button.collapsed {
+  background-color: $color-primary;
+  color: white;
+}
+#input-group1 {
+  background-color: $color-primary;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: calc(0.25rem - 1px) !important;
+}
+button.accordion-button.collapsed.px-0 {
+  background-color: $color-primary;
+  color: white;
+}
+button.accordion-button.collapsed {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.accordion-button:focus {
+  background-color: $color-primary;
+  color: white;
+  box-shadow: unset;
+}
+
+.accordion-body {
+  background-color: $color-primary;
+  color: white;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.accordion-button::after {
+  background-image: url("/assets/Vector.svg");
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: $color-primary;
+  color: white;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("/assets/Vector.svg");
+}
+div#collapseOne {
+  background-color: $color-primary;
+}
+input#input-group1 {
+  color: white;
+}
+
+#ingredients {
+  overflow-x: scroll;
+  max-height: 398px;
+
+  li {
+    padding-right: 20px;
+  }
+}
