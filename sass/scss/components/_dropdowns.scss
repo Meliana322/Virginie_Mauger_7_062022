@@ -1,63 +1,131 @@
 @import "./../abstracts/variables";
-button.accordion-button.collapsed {
-  background-color: $color-primary;
-  color: white;
-}
-#input-group1 {
-  background-color: $color-primary;
-  border: none;
-  border-radius: 0.25rem;
+
+#accordionFlushExample1 {
+  width: 224px;
 }
 
-.accordion-flush .accordion-item .accordion-button {
-  border-radius: calc(0.25rem - 1px) !important;
-}
-button.accordion-button.collapsed.px-0 {
-  background-color: $color-primary;
-  color: white;
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
 }
 button.accordion-button.collapsed {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-
-.accordion-button:focus {
-  background-color: $color-primary;
+  background-color: $color-primary !important;
   color: white;
-  box-shadow: unset;
 }
-
-.accordion-body {
-  background-color: $color-primary;
-  color: white;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-
 .accordion-button::after {
   background-image: url("/assets/Vector.svg");
 }
-
-.accordion-button:not(.collapsed) {
-  background-color: $color-primary;
-  color: white;
+.accordion-button:focus {
+  box-shadow: unset;
 }
-
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: $color-primary !important;
+  box-shadow: unset;
+}
 .accordion-button:not(.collapsed)::after {
   background-image: url("/assets/Vector.svg");
 }
-div#collapseOne {
-  background-color: $color-primary;
+.accordion-flush .accordion-item .accordion-button {
+  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
 }
-input#input-group1 {
+.accordion-body {
+  background-color: $color-primary !important;
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
   color: white;
-}
-
-#ingredients {
+  overflow: hidden;
   overflow-x: scroll;
   max-height: 398px;
-
-  li {
-    padding-right: 20px;
-  }
+  max-width: 668px;
+  display: flex;
 }
+// div#accordionFlushExample1 {
+//   display: flex;
+//   gap: 20px;
+// }
+// button.accordion-button.collapsed {
+//   background-color: $color-primary;
+//   color: white;
+//   border-bottom-left-radius: 0.25rem;
+//   border-bottom-right-radius: 0.25rem;
+// }
+// #input-group1 {
+//   background-color: $color-primary;
+//   border: none;
+//   border-radius: 0.25rem;
+//   width: 224px;
+// }
+// .accordion-item {
+//   border: unset;
+// }
+// #input-group2 {
+//   background-color: $color-secondary !important;
+//   border: none;
+//   border-radius: 0.25rem;
+//   width: 224px;
+// }
+// #input-group3 {
+//   background-color: $color-tertiary;
+//   border: none;
+//   border-radius: 0.25rem;
+//   width: 224px;
+// }
+
+// .accordion-flush .accordion-item .accordion-button::after {
+//   border-radius: calc(0.25rem - 1px) !important;
+// }
+// .accordion-flush .accordion-item .accordion-button {
+//   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0 !important;
+// }
+
+// button.accordion-button.collapsed.px-0 {
+//   background-color: $color-primary;
+//   color: white;
+// }
+
+// .accordion-button:focus {
+//   background-color: $color-primary;
+//   color: white;
+//   box-shadow: unset;
+// }
+
+// .accordion-body {
+//   background-color: $color-primary;
+//   color: white;
+//   border-bottom-left-radius: 0.25rem;
+//   border-bottom-right-radius: 0.25rem;
+// }
+
+// .accordion-button::after {
+//   background-image: url("/assets/Vector.svg");
+// }
+
+// .accordion-button:not(.collapsed) {
+//   background-color: $color-primary;
+//   color: white;
+//   box-shadow: unset;
+//   border-top-left-radius: unset;
+//   border-top-right-radius: unset;
+// }
+
+// .accordion-button:not(.collapsed)::after {
+//   background-image: url("/assets/Vector.svg");
+// }
+
+// div#collapseOne {
+//   background-color: $color-primary;
+// }
+// input#input-group1 {
+//   color: white;
+// }
+
+// #ingredients {
+//   overflow-x: auto;
+//   max-height: 398px;
+
+//   li {
+//     padding-right: 20px;
+//   }
+// }

@@ -1,6 +1,5 @@
 .card {
   max-width: 380px;
-  height: 364px;
 
   .card-img {
     background-color: $color-img;
@@ -9,10 +8,23 @@
   }
   .card-body {
     background-color: $color-quaternary;
+
+    .time-logo {
+      margin-right: 5px;
+    }
+
+    .time {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+    }
+  }
+  #card-header {
+    align-items: flex-start;
   }
 }
 .description {
-  max-height: 55px;
+  height: 110px;
 
   & p {
     text-overflow: ellipsis;
@@ -22,9 +34,17 @@
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     white-space: normal;
-    line-height: 1.8vh;
+    line-height: 1.4vh;
   }
 }
 .ingredientsRecipe {
-  line-height: 1.8vh;
+  line-height: 1.1vh;
+  font-size: 12px;
+
+  ul {
+    li {
+      margin-bottom: 2px;
+      font-weight: 400;
+    }
+  }
 }

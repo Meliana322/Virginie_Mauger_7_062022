@@ -21,76 +21,57 @@ input::placeholder {
   font-size: 18px !important;
 }
 
-button.accordion-button.collapsed {
-  background-color: #3282f7;
-  color: white;
+#accordionFlushExample1 {
+  width: 224px;
 }
 
-#input-group1 {
-  background-color: #3282f7;
-  border: none;
-  border-radius: 0.25rem;
-}
-
-.accordion-flush .accordion-item .accordion-button {
-  border-radius: calc(0.25rem - 1px) !important;
-}
-
-button.accordion-button.collapsed.px-0 {
-  background-color: #3282f7;
-  color: white;
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
 }
 
 button.accordion-button.collapsed {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-
-.accordion-button:focus {
-  background-color: #3282f7;
+  background-color: #3282f7 !important;
   color: white;
-  box-shadow: unset;
-}
-
-.accordion-body {
-  background-color: #3282f7;
-  color: white;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
 }
 
 .accordion-button::after {
   background-image: url("/assets/Vector.svg");
 }
 
+.accordion-button:focus {
+  box-shadow: unset;
+}
+
 .accordion-button:not(.collapsed) {
-  background-color: #3282f7;
   color: white;
+  background-color: #3282f7 !important;
+  box-shadow: unset;
 }
 
 .accordion-button:not(.collapsed)::after {
   background-image: url("/assets/Vector.svg");
 }
 
-div#collapseOne {
-  background-color: #3282f7;
+.accordion-flush .accordion-item .accordion-button {
+  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
 }
 
-input#input-group1 {
+.accordion-body {
+  background-color: #3282f7 !important;
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
   color: white;
-}
-
-#ingredients {
+  overflow: hidden;
   overflow-x: scroll;
   max-height: 398px;
-}
-#ingredients li {
-  padding-right: 20px;
+  max-width: 668px;
+  display: flex;
 }
 
 .card {
   max-width: 380px;
-  height: 364px;
 }
 .card .card-img {
   background-color: #c7bebe;
@@ -100,9 +81,20 @@ input#input-group1 {
 .card .card-body {
   background-color: #e7e7e7;
 }
+.card .card-body .time-logo {
+  margin-right: 5px;
+}
+.card .card-body .time {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+.card #card-header {
+  align-items: flex-start;
+}
 
 .description {
-  max-height: 55px;
+  height: 110px;
 }
 .description p {
   text-overflow: ellipsis;
@@ -111,11 +103,16 @@ input#input-group1 {
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   white-space: normal;
-  line-height: 1.8vh;
+  line-height: 1.4vh;
 }
 
 .ingredientsRecipe {
-  line-height: 1.8vh;
+  line-height: 1.1vh;
+  font-size: 12px;
+}
+.ingredientsRecipe ul li {
+  margin-bottom: 2px;
+  font-weight: 400;
 }
 
 /* Reset */
