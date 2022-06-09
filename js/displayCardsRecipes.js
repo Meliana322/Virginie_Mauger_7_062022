@@ -50,4 +50,27 @@ export function displayCardsRecipes(recipes) {
     recipesContainer.appendChild(cardRecipe);
   });
 }
-console.log();
+
+// Search Bar
+
+let searchInput = document.querySelector("#search-field");
+const recipesContainer = document.querySelector(".recipes-container");
+searchInput.addEventListener("input", filterData);
+export function filterData(e) {
+  if (searchInput.value.length >= 3) {
+    recipesContainer.innerHTML = " ";
+    const searchedString = e.target.value.toLowerCase();
+
+    const filteredArr = recipes.filter(
+      (recipe) =>
+        recipe.name.toLowerCase().includes(searchedString) ||
+        recipe.description.toLowerCase().includes(searchedString) ||
+        // si le tableau "ingredients" contient une ou plusieurs valeurs "ingrédient" revoie true
+        recipe.ingredients.some((element) =>
+          element.ingredient.toLowerCase().includes(searchedString)
+        )
+    );
+
+    displayCardsRecipes(filteredArr);
+  }
+}
