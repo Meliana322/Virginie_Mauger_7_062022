@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap");
 h1 {
   font-size: 36px !important;
   font-weight: 700;
@@ -21,7 +23,36 @@ input::placeholder {
   font-size: 18px !important;
 }
 
-#accordionFlushExample1 {
+#ingredients span .ingredients-list {
+  font-size: 18px !important;
+}
+
+h1 {
+  font-size: 36px !important;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 18px !important;
+}
+
+span {
+  font-size: 12px !important;
+}
+
+p {
+  font-size: 12px !important;
+}
+
+input::placeholder {
+  font-size: 18px !important;
+}
+
+#ingredients span .ingredients-list {
+  font-size: 18px !important;
+}
+
+.accordion-item {
   width: 224px;
 }
 
@@ -30,8 +61,18 @@ input::placeholder {
   border-top-left-radius: calc(0.25rem - 1px);
 }
 
-button.accordion-button.collapsed {
+#accordion1.collapsed {
   background-color: #3282f7 !important;
+  color: white;
+}
+
+#accordion2.collapsed {
+  background-color: #68d9a4 !important;
+  color: white;
+}
+
+#accordion3.collapsed {
+  background-color: #ed6454 !important;
   color: white;
 }
 
@@ -43,9 +84,21 @@ button.accordion-button.collapsed {
   box-shadow: unset;
 }
 
-.accordion-button:not(.collapsed) {
+#accordion1:not(.collapsed) {
   color: white;
   background-color: #3282f7 !important;
+  box-shadow: unset;
+}
+
+#accordion2:not(.collapsed) {
+  color: white;
+  background-color: #68d9a4 !important;
+  box-shadow: unset;
+}
+
+#accordion3:not(.collapsed) {
+  color: white;
+  background-color: #ed6454 !important;
   box-shadow: unset;
 }
 
@@ -59,17 +112,66 @@ button.accordion-button.collapsed {
 }
 
 .accordion-body {
-  background-color: #3282f7 !important;
   border-bottom-right-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px);
-  color: white;
   overflow: hidden;
-  overflow-x: scroll;
   max-height: 398px;
-  max-width: 668px;
   display: flex;
 }
 
+#body__style1,
+div#flush-collapseOne {
+  background-color: #3282f7 !important;
+  color: white;
+  height: 398px;
+}
+#body__style1 ul,
+div#flush-collapseOne ul {
+  margin-left: 20px;
+}
+
+#body__style2,
+div#flush-collapseTwo {
+  background-color: #68d9a4 !important;
+  color: white;
+  height: 398px;
+}
+#body__style2 ul,
+div#flush-collapseTwo ul {
+  margin-left: 20px;
+}
+
+#body__style3,
+div#flush-collapseThree {
+  background-color: #ed6454 !important;
+  color: white;
+}
+#body__style3 ul,
+div#flush-collapseThree ul {
+  margin-left: 20px;
+}
+
+.tags-results {
+  margin-right: 15px;
+  margin-bottom: 30px;
+}
+
+.search-by {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-tags {
+  width: unset;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-by {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .card {
   max-width: 380px;
 }

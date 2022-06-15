@@ -5,7 +5,7 @@ export function displayCardsRecipes(recipes) {
 
   recipesContainer.innerHTML = "";
   recipes.forEach((recipe) => {
-    const cardRecipe = document.createElement("div");
+    const cardRecipe = document.createElement("article");
     cardRecipe.setAttribute("class", "card");
     cardRecipe.innerHTML = `
       <div class="card-img"></div>
@@ -55,22 +55,31 @@ export function displayCardsRecipes(recipes) {
 
 let searchInput = document.querySelector("#search-field");
 const recipesContainer = document.querySelector(".recipes-container");
-searchInput.addEventListener("input", filterData);
-export function filterData(e) {
-  if (searchInput.value.length >= 3) {
-    recipesContainer.innerHTML = " ";
-    const searchedString = e.target.value.toLowerCase();
-
-    const filteredArr = recipes.filter(
-      (recipe) =>
-        recipe.name.toLowerCase().includes(searchedString) ||
-        recipe.description.toLowerCase().includes(searchedString) ||
-        // si le tableau "ingredients" contient une ou plusieurs valeurs "ingrédient" revoie true
-        recipe.ingredients.some((element) =>
-          element.ingredient.toLowerCase().includes(searchedString)
-        )
-    );
-
-    displayCardsRecipes(filteredArr);
+searchInput.addEventListener("input", function (e) {
+  if (searchInput.value.trim().length > 2) {
+    const result = filterData(e.target.value, recipes);
+    if (result.length === 0) {
+      console.log("Aucune recette ne correspond à votre critère...");
+    } else {
+      displayCardsRecipes(result);
+    }
   }
+});
+
+export function filterData(inputText, recipeArray) {
+  // trim() retire les blancs en dédut et fin de chaine
+  recipesContainer.innerHTML = " ";
+  // const searchedString = e.target.value.toLowerCase();
+  const searchedString = inputText.toLowerCase();
+
+  let filteredArr = recipeArray.filter(
+    (recipe) =>
+      recipe.name.toLowerCase().includes(searchedString) ||
+      recipe.description.toLowerCase().includes(searchedString) ||
+      // si le tableau "ingredients" contient une ou plusieurs valeurs "ingrédient" renvoie true
+      recipe.ingredients.some((element) =>
+        element.ingredient.toLowerCase().includes(searchedString)
+      )
+  );
+  return filteredArr;
 }
