@@ -86,6 +86,14 @@ button {
 body {
   font-family: "Lato", sans-serif;
 }
+button {
+  cursor: pointer;
+  box-shadow: none !important;
+}
+input,
+.input-group-text {
+  border: none !important;
+}
 
 // header
 .header-h1 {

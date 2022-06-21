@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap");
 h1 {
   font-size: 36px !important;
   font-weight: 700;
@@ -27,151 +25,91 @@ input::placeholder {
   font-size: 18px !important;
 }
 
-h1 {
-  font-size: 36px !important;
-  font-weight: 700;
+/* dropdown */
+.accordion {
+  min-width: 200px;
+  margin-bottom: 20px;
+  max-width: 600px !important;
+}
+.accordion li {
+  padding-right: 35px;
+  padding-bottom: 5px;
+  text-transform: capitalize;
 }
 
-h2 {
-  font-size: 18px !important;
+.accordion-body ul {
+  max-height: 400px;
+  overflow-x: scroll;
 }
 
-span {
-  font-size: 12px !important;
+.accordion input::placeholder {
+  color: white !important;
+  opacity: 1;
 }
 
-p {
-  font-size: 12px !important;
+.accordion input.focus::placeholder {
+  opacity: 0.5;
 }
 
-input::placeholder {
-  font-size: 18px !important;
+main input,
+.accordion-body li {
+  color: white !important;
 }
 
-#ingredients span .ingredients-list {
-  font-size: 18px !important;
+.accordion-body li {
+  cursor: pointer;
 }
 
-.accordion-item {
-  width: 224px;
-}
-
-.accordion-item:last-of-type .accordion-button.collapsed {
-  border-top-right-radius: calc(0.25rem - 1px);
-  border-top-left-radius: calc(0.25rem - 1px);
-}
-
-#accordion1.collapsed {
+#accordionOne :is(.accordion-item, input, .accordion-body) {
   background-color: #3282f7 !important;
-  color: white;
+  height: inherit;
 }
 
-#accordion2.collapsed {
+#accordionTwo :is(.accordion-item, input, .accordion-body) {
   background-color: #68d9a4 !important;
-  color: white;
+  height: inherit;
 }
 
-#accordion3.collapsed {
+#accordionThree :is(.accordion-item, input, .accordion-body) {
   background-color: #ed6454 !important;
-  color: white;
+  height: inherit;
 }
 
 .accordion-button::after {
-  background-image: url("/assets/Vector.svg");
+  background-image: url(/assets/Vector.svg) !important;
+  width: 1.7rem !important;
+  height: 1rem !important;
+  background-size: 1.25rem !important;
 }
 
-.accordion-button:focus {
-  box-shadow: unset;
-}
-
-#accordion1:not(.collapsed) {
-  color: white;
-  background-color: #3282f7 !important;
-  box-shadow: unset;
-}
-
-#accordion2:not(.collapsed) {
-  color: white;
-  background-color: #68d9a4 !important;
-  box-shadow: unset;
-}
-
-#accordion3:not(.collapsed) {
-  color: white;
-  background-color: #ed6454 !important;
-  box-shadow: unset;
+.accordion-button.collapsed,
+.accordion-button:not(.collapsed),
+main .input-group-text {
+  background-color: transparent !important;
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url("/assets/Vector.svg");
+  margin-right: 5px;
 }
 
-.accordion-flush .accordion-item .accordion-button {
-  border-top-right-radius: calc(0.25rem - 1px);
-  border-top-left-radius: calc(0.25rem - 1px);
+form #basic-addon2,
+form #basic-addon3,
+form #basic-addon4 {
+  height: auto;
+  padding: auto !important;
 }
 
-.accordion-body {
-  border-bottom-right-radius: calc(0.25rem - 1px);
-  border-bottom-left-radius: calc(0.25rem - 1px);
-  overflow: hidden;
-  max-height: 398px;
-  display: flex;
+form #basic-addon2::after,
+form #basic-addon3::after,
+form #basic-addon4::after {
+  height: auto;
+  padding: auto !important;
 }
 
-#body__style1,
-div#flush-collapseOne {
-  background-color: #3282f7 !important;
-  color: white;
-  height: 398px;
-}
-#body__style1 ul,
-div#flush-collapseOne ul {
-  margin-left: 20px;
+.form-control:focus {
+  box-shadow: unset !important;
 }
 
-#body__style2,
-div#flush-collapseTwo {
-  background-color: #68d9a4 !important;
-  color: white;
-  height: 398px;
-}
-#body__style2 ul,
-div#flush-collapseTwo ul {
-  margin-left: 20px;
-}
-
-#body__style3,
-div#flush-collapseThree {
-  background-color: #ed6454 !important;
-  color: white;
-}
-#body__style3 ul,
-div#flush-collapseThree ul {
-  margin-left: 20px;
-}
-
-.tags-results {
-  margin-right: 15px;
-  margin-bottom: 30px;
-}
-
-.search-by {
-  display: flex;
-  flex-direction: row;
-}
-
-.container-tags {
-  width: unset;
-}
-
-@media only screen and (max-width: 768px) {
-  .search-by {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
 .card {
   max-width: 380px;
 }
@@ -306,6 +244,16 @@ button {
 /* Reset End*/
 body {
   font-family: "Lato", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  box-shadow: none !important;
+}
+
+input,
+.input-group-text {
+  border: none !important;
 }
 
 .header-h1 {

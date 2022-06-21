@@ -1,5 +1,7 @@
+// !Affichage des tags dans les Dropdowns
 export function displayDropdown(recipes) {
   const accordionIngredients = document.querySelector("#ingredients");
+  // console.log(accordionIngredients);
   // !get the list of all ingredients
   const ingredientsList = [];
   for (let i = 0; i < recipes.length; i++) {
@@ -10,21 +12,20 @@ export function displayDropdown(recipes) {
   }
   // No-repeat et Transform objet en tableau [...]
   const ingredientsListUnique = [...new Set(ingredientsList)];
+
   // alphabetical order
   const ingredientsSort = ingredientsListUnique.sort();
-  console.log(ingredientsSort);
+  // console.log(ingredientsSort);
 
   accordionIngredients.innerHTML = `
     ${ingredientsSort
       .map(
         (element) => `
-        <li class="ingredients-list">
-            ${element}
-        </li>`
+        <li class="ingredients-list">${element}</li>`
       )
       .join(" ")}
     `;
-
+  // console.log(accordionIngredients.textContent);
   // !get the list of all appliances
   const accordionAppliances = document.querySelector("#appliances");
   const appliancesList = [];
@@ -34,24 +35,23 @@ export function displayDropdown(recipes) {
   }
   // No-repeatet et Transform objet en tableau [...]
   const appliancesListtUnique = [...new Set(appliancesList)];
+
   // alphabetical order
   const appliancesSort = appliancesListtUnique.sort();
-  console.log(appliancesSort);
+  // console.log(appliancesSort);
 
   accordionAppliances.innerHTML = `
     ${appliancesSort
       .map(
         (element) => `
-        <li class="appliances-list">
-            ${element}
-        </li>`
+        <li class="appliances-list">${element}</li>`
       )
       .join(" ")}
     `;
 
   // !get the list of all ustensils
   const accordionUstensils = document.querySelector("#ustensils");
-  console.log(accordionIngredients);
+  // console.log(accordionIngredients);
   const ustensilsList = [];
   for (let i = 0; i < recipes.length; i++) {
     let ustensils = recipes[i].ustensils;
@@ -61,17 +61,16 @@ export function displayDropdown(recipes) {
   const ustensilsListJoined = ustensilsList.flat().map((x) => x.toLowerCase());
   // No-repeat et Transform objet en tableau [...]
   const ustensilsListUnique = [...new Set(ustensilsListJoined)];
+
   // alphabetical order
   const ustensilsSort = ustensilsListUnique.sort();
-  console.log(ustensilsSort);
+  // console.log(ustensilsSort);
 
   accordionUstensils.innerHTML = `
     ${ustensilsSort
       .map(
         (element) => `
-        <li class="ustensils-list">
-            ${element}
-        </li>`
+        <li class="ustensils-list">${element}</li>`
       )
       .join(" ")}
     `;

@@ -1,5 +1,5 @@
 import { recipes } from "./recipes.js";
-
+// console.log(recipes);
 export function displayCardsRecipes(recipes) {
   const recipesContainer = document.querySelector(".recipes-container");
 
@@ -52,10 +52,9 @@ export function displayCardsRecipes(recipes) {
 }
 
 // Search Bar
-
 let searchInput = document.querySelector("#search-field");
-const recipesContainer = document.querySelector(".recipes-container");
 searchInput.addEventListener("input", function (e) {
+  // trim() retire les blancs en dédut et fin de chaine
   if (searchInput.value.trim().length > 2) {
     const result = filterData(e.target.value, recipes);
     if (result.length === 0) {
@@ -67,9 +66,6 @@ searchInput.addEventListener("input", function (e) {
 });
 
 export function filterData(inputText, recipeArray) {
-  // trim() retire les blancs en dédut et fin de chaine
-  recipesContainer.innerHTML = " ";
-  // const searchedString = e.target.value.toLowerCase();
   const searchedString = inputText.toLowerCase();
 
   let filteredArr = recipeArray.filter(

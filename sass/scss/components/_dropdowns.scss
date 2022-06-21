@@ -1,116 +1,198 @@
-@import "./../abstracts/variables";
-@import "./../base/typography";
+// @import "./../abstracts/variables";
+// @import "./../base/typography";
 
-// #accordionFlushExample1,
-// #accordionFlushExample2,
-// #accordionFlushExample3 {
+// // #accordionFlushExample1,
+// // #accordionFlushExample2,
+// // #accordionFlushExample3 {
+// //   width: 224px;
+// // }
+// .accordion-item {
 //   width: 224px;
 // }
-.accordion-item {
-  width: 224px;
+
+// .accordion-item:last-of-type .accordion-button.collapsed {
+//   border-top-right-radius: calc(0.25rem - 1px);
+//   border-top-left-radius: calc(0.25rem - 1px);
+// }
+// #accordion1.collapsed {
+//   background-color: $color-primary !important;
+//   color: white;
+// }
+
+// #accordion2.collapsed {
+//   background-color: $color-secondary !important;
+//   color: white;
+// }
+// #accordion3.collapsed {
+//   background-color: $color-tertiary !important;
+//   color: white;
+// }
+// .accordion-button::after {
+//   background-image: url("/assets/Vector.svg");
+// }
+// .accordion-button:focus {
+//   box-shadow: unset;
+// }
+// #accordion1:not(.collapsed) {
+//   color: white;
+//   background-color: $color-primary !important;
+//   box-shadow: unset;
+// }
+// #accordion2:not(.collapsed) {
+//   color: white;
+//   background-color: $color-secondary !important;
+//   box-shadow: unset;
+// }
+// #accordion3:not(.collapsed) {
+//   color: white;
+//   background-color: $color-tertiary !important;
+//   box-shadow: unset;
+// }
+// .accordion-button:not(.collapsed)::after {
+//   background-image: url("/assets/Vector.svg");
+// }
+// .accordion-flush .accordion-item .accordion-button {
+//   border-top-right-radius: calc(0.25rem - 1px);
+//   border-top-left-radius: calc(0.25rem - 1px);
+// }
+// .accordion-body {
+//   border-bottom-right-radius: calc(0.25rem - 1px);
+//   border-bottom-left-radius: calc(0.25rem - 1px);
+//   overflow: hidden;
+//   // overflow-x: scroll;
+//   max-height: 398px;
+//   display: flex;
+// }
+// #body__style1,
+// div#flush-collapseOne {
+//   background-color: $color-primary !important;
+//   color: white;
+//   height: 398px;
+
+//   ul {
+//     margin-left: 20px;
+//   }
+// }
+// #body__style2,
+// div#flush-collapseTwo {
+//   background-color: $color-secondary !important;
+//   color: white;
+//   height: 398px;
+
+//   ul {
+//     margin-left: 20px;
+//   }
+// }
+// #body__style3,
+// div#flush-collapseThree {
+//   background-color: $color-tertiary !important;
+//   color: white;
+
+//   ul {
+//     margin-left: 20px;
+//   }
+// }
+
+// .tags-results {
+//   margin-right: 15px;
+//   margin-bottom: 30px;
+// }
+
+// // Section filters recipes
+
+// .search-by {
+//   display: flex;
+//   flex-direction: row;
+// }
+
+// .container-tags {
+//   width: unset;
+// }
+// @include phone {
+//   .search-by {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// }
+
+/* dropdown */
+
+.accordion {
+  min-width: 200px;
+  margin-bottom: 20px;
+  max-width: 600px !important;
+
+  li {
+    padding-right: 35px;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+  }
 }
 
-.accordion-item:last-of-type .accordion-button.collapsed {
-  border-top-right-radius: calc(0.25rem - 1px);
-  border-top-left-radius: calc(0.25rem - 1px);
+.accordion-body ul {
+  max-height: 400px;
+  overflow-x: scroll;
 }
-#accordion1.collapsed {
+
+.accordion input::placeholder {
+  color: white !important;
+  opacity: 1;
+}
+.accordion input.focus::placeholder {
+  opacity: 0.5;
+}
+
+main input,
+.accordion-body li {
+  color: white !important;
+}
+.accordion-body li {
+  cursor: pointer;
+}
+#accordionOne :is(.accordion-item, input, .accordion-body) {
   background-color: $color-primary !important;
-  color: white;
+  height: inherit;
 }
-#accordion2.collapsed {
+
+#accordionTwo :is(.accordion-item, input, .accordion-body) {
   background-color: $color-secondary !important;
-  color: white;
+  height: inherit;
 }
-#accordion3.collapsed {
+#accordionThree :is(.accordion-item, input, .accordion-body) {
   background-color: $color-tertiary !important;
-  color: white;
+  height: inherit;
 }
+
 .accordion-button::after {
-  background-image: url("/assets/Vector.svg");
+  background-image: url(/assets/Vector.svg) !important;
+  width: 1.7rem !important;
+  height: 1rem !important;
+  background-size: 1.25rem !important;
 }
-.accordion-button:focus {
-  box-shadow: unset;
+
+.accordion-button.collapsed,
+.accordion-button:not(.collapsed),
+main .input-group-text {
+  background-color: transparent !important;
 }
-#accordion1:not(.collapsed) {
-  color: white;
-  background-color: $color-primary !important;
-  box-shadow: unset;
-}
-#accordion2:not(.collapsed) {
-  color: white;
-  background-color: $color-secondary !important;
-  box-shadow: unset;
-}
-#accordion3:not(.collapsed) {
-  color: white;
-  background-color: $color-tertiary !important;
-  box-shadow: unset;
-}
+
 .accordion-button:not(.collapsed)::after {
-  background-image: url("/assets/Vector.svg");
-}
-.accordion-flush .accordion-item .accordion-button {
-  border-top-right-radius: calc(0.25rem - 1px);
-  border-top-left-radius: calc(0.25rem - 1px);
-}
-.accordion-body {
-  border-bottom-right-radius: calc(0.25rem - 1px);
-  border-bottom-left-radius: calc(0.25rem - 1px);
-  overflow: hidden;
-  // overflow-x: scroll;
-  max-height: 398px;
-  display: flex;
-}
-#body__style1,
-div#flush-collapseOne {
-  background-color: $color-primary !important;
-  color: white;
-  height: 398px;
-
-  ul {
-    margin-left: 20px;
-  }
-}
-#body__style2,
-div#flush-collapseTwo {
-  background-color: $color-secondary !important;
-  color: white;
-  height: 398px;
-
-  ul {
-    margin-left: 20px;
-  }
-}
-#body__style3,
-div#flush-collapseThree {
-  background-color: $color-tertiary !important;
-  color: white;
-
-  ul {
-    margin-left: 20px;
-  }
+  margin-right: 5px;
 }
 
-.tags-results {
-  margin-right: 15px;
-  margin-bottom: 30px;
+form #basic-addon2,
+form #basic-addon3,
+form #basic-addon4 {
+  height: auto;
+  padding: auto !important;
 }
-
-// Section filters recipes
-
-.search-by {
-  display: flex;
-  flex-direction: row;
+form #basic-addon2::after,
+form #basic-addon3::after,
+form #basic-addon4::after {
+  height: auto;
+  padding: auto !important;
 }
-
-.container-tags {
-  width: unset;
-}
-@include phone {
-  .search-by {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.form-control:focus {
+  box-shadow: unset !important;
 }

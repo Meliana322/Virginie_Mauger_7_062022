@@ -1,8 +1,26 @@
 import { recipes } from "./recipes.js";
 import { displayCardsRecipes } from "./displayCardsRecipes.js";
 import { displayDropdown } from "./displayDropdowns.js";
-// import { dropdowns } from "./dropdowns.js";
+import { displayTags } from "./displayTags.js";
 
 displayCardsRecipes(recipes);
 
 displayDropdown(recipes);
+
+displayTags();
+
+// !Affichage de la liste des tags au click ou au focus
+let inputTagsIngredients = document.querySelector("#formOne input");
+let buttonTagsIngredients = document.querySelector(".accordion-button");
+const accordionList = document.querySelector(".collapse");
+
+// At the click displays accordion
+inputTagsIngredients.addEventListener("click", () => {
+  buttonTagsIngredients.setAttribute("aria-expanded", "true");
+  accordionList.classList.add("show");
+});
+// At the focus displays accordion
+inputTagsIngredients.addEventListener("focus", () => {
+  buttonTagsIngredients.setAttribute("aria-expanded", "true");
+  accordionList.classList.add("show");
+});
