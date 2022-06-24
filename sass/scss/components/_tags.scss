@@ -1,0 +1,9 @@
+.tag-list {
+  display: flex;
+  align-items: center;
+
+  .close-tag {
+    background-color: unset;
+    border: unset;
+  }
+}

@@ -33,17 +33,38 @@ export function filterData(inputText, recipeArray) {
 
 export function filterByTag(tagObj, recipeArr) {
   let filteredArr = [];
-  // if (tagObj.category === "ingredients") {
-  filteredArr = recipeArr.filter((recipe) =>
-    recipe.ingredients.some((element) =>
-      element.ingredient.toLowerCase().includes(tagObj.value.toLowerCase())
-    )
-  );
-  // }
 
-  // if (tagObj.category === "appliances") {
+  // Si l'objet appartient à la category "ingredients"
+  if (tagObj.category === "ingredients") {
+    // Prend le tableau des recettes et boucle sur chaque recette
+    filteredArr = recipeArr.filter((recipe) =>
+      // Dans la recette j'ai une chaine de caractères
+      recipe.ingredients.some((ingredient) =>
+        //Si cette chaine de caractères est présente renvoie sa valeur
+        ingredient.ingredient.toLowerCase().includes(tagObj.value.toLowerCase())
+      )
+    );
+  }
 
-  // }
-
+  // Si l'objet appartient à la category "appliances"
+  if (tagObj.category === "appliances") {
+    // Prend le tableau des recettes et boucle sur chaque recette
+    filteredArr = recipeArr.filter((recipe) =>
+      // Dans la recette j'ai une chaine de caractères
+      //Si cette chaine de caractères est présente renvoie sa valeur
+      recipe.appliance.toLowerCase().includes(tagObj.value.toLowerCase())
+    );
+  }
+  if (tagObj.category === "ustensils") {
+    // Prend le tableau des recettes et boucle sur chaque recette
+    filteredArr = recipeArr.filter((recipe) =>
+      // Dans la recette j'ai une chaine de caractères
+      recipe.ustensils.some((ustensil) =>
+        //Si cette chaine de caractères est présente renvoie sa valeur
+        ustensil.toLowerCase().includes(tagObj.value.toLowerCase())
+      )
+    );
+  }
+  // Renvoie le tableau d'objets filtré
   return filteredArr;
 }

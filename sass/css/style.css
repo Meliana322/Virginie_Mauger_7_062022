@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap");
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 h1 {
   font-size: 36px !important;
   font-weight: 700;
@@ -153,6 +154,15 @@ form #basic-addon4::after {
 .ingredientsRecipe ul li {
   margin-bottom: 2px;
   font-weight: 400;
+}
+
+.tag-list {
+  display: flex;
+  align-items: center;
+}
+.tag-list .close-tag {
+  background-color: unset;
+  border: unset;
 }
 
 /* Reset */
