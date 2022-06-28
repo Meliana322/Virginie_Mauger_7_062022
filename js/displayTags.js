@@ -1,26 +1,27 @@
 import { recipes } from "./recipes.js";
 import { displayCardsRecipes } from "./displayCardsRecipes.js";
-import { displayDropdown } from "./displayDropdowns.js";
+// import { displayDropdown } from "./displayDropdowns.js";
 import { filterByTag } from "./searchBar.js";
+// import { filterData } from "./searchBar.js";
 
 // tags
 const tagsDropdowns = document.querySelector(".tag");
 let arrayTags = [];
-console.log(arrayTags);
 
 export function displayTags() {
   // Tableau de toutes les recettes
-  let filteredRecipe = [...recipes];
   const listDropdowns = document.querySelectorAll(".list-dropdown li");
-  listDropdowns.forEach((e) => {
-    e.addEventListener("click", (e) => {
+  listDropdowns.forEach((el) => {
+    el.addEventListener("click", (e) => {
       const tagElement = e.target;
+      let listTags;
 
       // Récupère le texte du mot cliqué
       if (!tagElement.classList.contains("click")) {
-        const listTags = document.createElement("li");
+        listTags = document.createElement("li");
         listTags.classList.add("tag-list");
         tagsDropdowns.appendChild(listTags);
+        // Ajout le bouton et l'icone de fermeture au container Tag
         listTags.innerHTML = `${tagElement.textContent}<button type="button" class="close-tag" aria-label="close-tag"><i class="far fa-times-circle"></i></button>`;
         tagElement.classList.add("click");
 
@@ -29,50 +30,82 @@ export function displayTags() {
           value: tagElement.textContent,
         });
       }
-      tagElement.classList.add("click");
 
+      // Tableau de toutes les recettes
+      let filteredRecipe = [...recipes];
       // Boucle sur arrayTags
       for (let i = 0; i < arrayTags.length; i++) {
-        filteredRecipe = filterByTag(
-          {
-            category: tagElement.parentNode.id,
-            value: tagElement.textContent,
-          },
-          filteredRecipe
-        );
+        filteredRecipe = filterByTag(arrayTags[i], filteredRecipe);
 
-        displayCardsRecipes(filteredRecipe);
+        console.log(arrayTags);
+      }
+
+      displayCardsRecipes(filteredRecipe);
+
+      // ! REMOVE TAGS
+      if (tagElement.classList.contains("click")) {
+        const closesButton = listTags.querySelector(".close-tag");
+        closesButton.addEventListener("click", (e) => {
+          const tagsContainer = e.target.parentNode.parentNode;
+          tagsContainer.remove();
+
+          arrayTags = arrayTags.filter(
+            (tagObj) => tagObj.value !== tagElement.textContent
+          );
+
+          console.log(arrayTags);
+          // Tableau de toutes les recettes
+          filteredRecipe = [...recipes];
+          for (let i = 0; i < arrayTags.length; i++) {
+            filteredRecipe = filterByTag(arrayTags[i], filteredRecipe);
+
+            // console.log(arrayTags);
+          }
+          displayCardsRecipes(filteredRecipe);
+          // console.log(arrayTags);
+        });
+        // );
+        tagElement.classList.remove("click");
       }
     });
   });
 }
 
-// export function removeTags(tags, recipes) {
-//   const ulTags = document.querySelectorAll(".tag");
-//   ulTags.forEach((containertags) => {
-//     ulTags.addEventListener("click", (e) => {
-//       const closeTag = containertags.querySelectorAll(".close-tag");
+// function closeTags() {
+//   let filteredRecipe = [...recipes];
+//   const listDropdowns = document.querySelectorAll(".list-dropdown li");
+//   listDropdowns.forEach((e) => {
+//     e.addEventListener("click", (e) => {
+//       const tagElement = e.target;
 
-//       closeTag.forEach((close) => {
-//         const tag = closeTag.parentNode.parentNode;
-
-//         if (e.target == close) {
-//           tag.remove();
-
-//           tags.forEach((element) => {
-//             if (
-//               Object.is(element.value, tag.textContent) &&
-//               ulTags.classList.contains(element.type)
-//             ) {
-//               tags.splice(tags.indexOf(element), 1);
+//       if (tagElement.classList.contains("click")) {
+//         const closesButtons = document.querySelectorAll(".close-tag");
+//         closesButtons.forEach((e) =>
+//           e.addEventListener("click", (e) => {
+//             const tagsContainer = e.target.parentNode.parentNode;
+//             arrayTags = tagsContainer.remove({
+//               category: tagElement.parentNode.id,
+//               value: tagElement.textContent,
+//             });
+//             for (let i = 0; i < arrayTags.length; i++) {
+//               filteredRecipe = filterByTag(
+//                 {
+//                   category: tagElement.parentNode.id,
+//                   value: tagElement.textContent,
+//                 },
+//                 filteredRecipe
+//               );
+//               displayCardsRecipes(filteredRecipe);
+//               console.log(arrayTags);
 //             }
-//           });
-
-//           displayCardsRecipes();
-//           displayTags(tags, recipes);
-//           displayDropdown();
-//         }
-//       });
+//             console.log(arrayTags);
+//           })
+//         );
+//         tagElement.classList.remove("click");
+//       }
 //     });
 //   });
 // }
+// closeTags();
+
+// Stylisation des dropdowns
