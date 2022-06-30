@@ -1,4 +1,3 @@
-import { recipes } from "./recipes.js";
 import { displayCardsRecipes } from "./displayCardsRecipes.js";
 // import { displayDropdown } from "./displayDropdowns.js";
 import { filterByTag } from "./searchBar.js";
@@ -8,7 +7,7 @@ import { filterByTag } from "./searchBar.js";
 const tagsDropdowns = document.querySelector(".tag");
 let arrayTags = [];
 
-export function displayTags() {
+export function displayTags(recipeArr) {
   // Tableau de toutes les recettes
   const listDropdowns = document.querySelectorAll(".list-dropdown li");
   listDropdowns.forEach((el) => {
@@ -32,7 +31,7 @@ export function displayTags() {
       }
 
       // Tableau de toutes les recettes
-      let filteredRecipe = [...recipes];
+      let filteredRecipe = [...recipeArr];
       // Boucle sur arrayTags
       for (let i = 0; i < arrayTags.length; i++) {
         filteredRecipe = filterByTag(arrayTags[i], filteredRecipe);
@@ -55,7 +54,7 @@ export function displayTags() {
 
           console.log(arrayTags);
           // Tableau de toutes les recettes
-          filteredRecipe = [...recipes];
+          filteredRecipe = [...recipeArr];
           for (let i = 0; i < arrayTags.length; i++) {
             filteredRecipe = filterByTag(arrayTags[i], filteredRecipe);
 
