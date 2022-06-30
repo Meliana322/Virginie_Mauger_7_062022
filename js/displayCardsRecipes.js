@@ -1,5 +1,3 @@
-import { recipes } from "./recipes.js";
-// console.log(recipes);
 export function displayCardsRecipes(recipes) {
   const recipesContainer = document.querySelector(".recipes-container");
 
@@ -51,23 +49,21 @@ export function displayCardsRecipes(recipes) {
   });
 }
 
-// Search Bar
-let searchInput = document.querySelector("#search-field");
-searchInput.addEventListener("input", function (e) {
-  // trim() retire les blancs en dédut et fin de chaine
-  if (searchInput.value.trim().length > 2) {
-    const result = filterData(e.target.value, recipes);
-    if (result.length === 0) {
-      console.log("Aucune recette ne correspond à votre critère...");
-    } else {
-      displayCardsRecipes(result);
-    }
-  }
-});
+//let searchInput = document.querySelector("#search-field");
+// searchInput.addEventListener("input", function (e) {
+//   // trim() retire les blancs en dédut et fin de chaine
+//   if (searchInput.value.trim().length > 2) {
+//     const result = filterData(e.target.value, recipes);
+//     if (result.length === 0) {
+//       console.log("Aucune recette ne correspond à votre critère...");
+//     } else {
+//       displayCardsRecipes(result);
+//     }
+//   }
+// });
 
 export function filterData(inputText, recipeArray) {
   const searchedString = inputText.toLowerCase();
-
   let filteredArr = recipeArray.filter(
     (recipe) =>
       recipe.name.toLowerCase().includes(searchedString) ||
