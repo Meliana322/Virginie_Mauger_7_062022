@@ -1,18 +1,16 @@
 import { recipes } from "./recipes.js";
 import { displayCardsRecipes, filterData } from "./displayCardsRecipes.js";
 import { displayDropdown } from "./displayDropdowns.js";
-import { displayTags } from "./displayTags.js";
+import { displayTags, resultFilterTag } from "./displayTags.js";
 import { formattingListDropdowns } from "./formattingListDropdown.js";
 import { sortingListDropdown } from "./sortingListDropdown.js";
 import { updateWordList } from "./updateWordList.js";
 
 let filteredRecipe = [...recipes];
 
-displayCardsRecipes(recipes);
+displayCardsRecipes(recipes); // Affichage des cartes de recettes
 
-displayDropdown(recipes);
-
-// displayTags();
+displayDropdown(recipes); // Affichage des tags dans les Dropdowns
 
 formattingListDropdowns();
 
@@ -21,14 +19,33 @@ let inputTagsIngredients = document.querySelector("#formOne input");
 let buttonTagsIngredients = document.querySelector(".accordion-button");
 const accordionList = document.querySelector(".collapse");
 
-///////////
+// Au click affiche accordion
+inputTagsIngredients.addEventListener("click", () => {
+  buttonTagsIngredients.setAttribute("aria-expanded", "true");
+  accordionList.classList.add("show");
+});
+// A la sélection affiche accordion
+inputTagsIngredients.addEventListener("focus", () => {
+  buttonTagsIngredients.setAttribute("aria-expanded", "true");
+  accordionList.classList.add("show");
+});
+
+let arrayTags = [];
+
+displayTags(recipes, arrayTags); // Affichage / Fermeture des tags et des recettes en fonction des choix utilisateur
+
 const recipesContainer = document.querySelector(".recipes-container");
 
 let searchInput = document.querySelector("#search-field");
+
+// Affichage des recettes en fonction de la barre de recherche
 searchInput.addEventListener("input", function (e) {
   // trim() retire les blancs en dédut et fin de chaine
   if (searchInput.value.trim().length > 2) {
-    filteredRecipe = filterData(e.target.value, recipes);
+    filteredRecipe = filterData(
+      e.target.value,
+      resultFilterTag(recipes, arrayTags)
+    );
     if (filteredRecipe.length === 0) {
       recipesContainer.innerHTML = "";
       const errorMessage = document.createElement("p");
@@ -37,22 +54,10 @@ searchInput.addEventListener("input", function (e) {
         "Aucune recette ne correspond à votre critère...";
       recipesContainer.appendChild(errorMessage);
     } else {
-      displayTags(filteredRecipe);
       displayCardsRecipes(filteredRecipe);
     }
   }
 });
-//////////////////
 
-// At the click displays accordion
-inputTagsIngredients.addEventListener("click", () => {
-  buttonTagsIngredients.setAttribute("aria-expanded", "true");
-  accordionList.classList.add("show");
-});
-// At the focus displays accordion
-inputTagsIngredients.addEventListener("focus", () => {
-  buttonTagsIngredients.setAttribute("aria-expanded", "true");
-  accordionList.classList.add("show");
-});
-sortingListDropdown();
-updateWordList();
+sortingListDropdown(); // Affichage liste Dropdown en fonction de l'input tag
+updateWordList(); // Mise à jour de la liste de mots au fur et à mesure de la saisie dans le dropdown

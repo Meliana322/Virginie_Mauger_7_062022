@@ -1,11 +1,12 @@
-// !Affichage des tags dans les Dropdowns
+// Affichage des tags dans les Dropdowns
 export function displayDropdown(recipes) {
   const accordionIngredients = document.querySelector("#ingredients");
-  // console.log(accordionIngredients);
-  // !get the list of all ingredients
+
+  // ! obtenir la liste de tous les ingrédients
   const ingredientsList = [];
   for (let i = 0; i < recipes.length; i++) {
     let ingredients = recipes[i].ingredients;
+    // crée un nouveau tableau avec les ingrédient contenus dans "ingrédients" sous forme de chaine de caractères minuscules
     ingredients.map(({ ingredient }) => {
       ingredientsList.push(`${ingredient.toLowerCase()}`);
     });
@@ -15,8 +16,7 @@ export function displayDropdown(recipes) {
 
   // alphabetical order
   const ingredientsSort = ingredientsListUnique.sort();
-  // console.log(ingredientsSort);
-
+  // Crée un nouveau tableau en fusionnant tous les ingrédients du tableau en une chaine de caractères
   accordionIngredients.innerHTML = `
     ${ingredientsSort
       .map(
@@ -25,21 +25,20 @@ export function displayDropdown(recipes) {
       )
       .join(" ")}
     `;
-  // console.log(accordionIngredients.textContent);
-  // !get the list of all appliances
+  // ! obtenir la liste de tous les appareils
   const accordionAppliances = document.querySelector("#appliances");
   const appliancesList = [];
   for (let i = 0; i < recipes.length; i++) {
     let appliances = recipes[i].appliance;
+    // push tous les appareils de chaque recettes dans le tableau "appliancesList" sous forme de chaine de caractères minuscules
     appliancesList.push(`${appliances.toLowerCase()}`);
   }
-  // No-repeatet et Transform objet en tableau [...]
+  // No-repeatet transforme objets en tableau [...]
   const appliancesListtUnique = [...new Set(appliancesList)];
 
-  // alphabetical order
+  // Tri par ordre alphabétique
   const appliancesSort = appliancesListtUnique.sort();
-  // console.log(appliancesSort);
-
+  // Crée un nouveau tableau en fusionnant tous les appareils du tableau en une chaine de caractères
   accordionAppliances.innerHTML = `
     ${appliancesSort
       .map(
@@ -49,23 +48,22 @@ export function displayDropdown(recipes) {
       .join(" ")}
     `;
 
-  // !get the list of all ustensils
+  // ! obtenir la liste de tous les ustensiles
   const accordionUstensils = document.querySelector("#ustensils");
-  // console.log(accordionIngredients);
   const ustensilsList = [];
   for (let i = 0; i < recipes.length; i++) {
     let ustensils = recipes[i].ustensils;
+    // push tous les ustensiles de chaque recettes dans le tableau "ustensilsList"
     ustensilsList.push(ustensils);
   }
-  //   Intègre les valeurs du sous-tableau dans le tableau et passe tous les éléments en minuscules
+  //   Intègre les valeurs du sous-tableau dans le tableau sous forme de chaine de caractères minuscules
   const ustensilsListJoined = ustensilsList.flat().map((x) => x.toLowerCase());
   // No-repeat et Transform objet en tableau [...]
   const ustensilsListUnique = [...new Set(ustensilsListJoined)];
 
-  // alphabetical order
+  // Trie les éléments du tableau à même le tableau et renvoie le tableau (Ordre alphabetique)
   const ustensilsSort = ustensilsListUnique.sort();
-  // console.log(ustensilsSort);
-
+  // Crée un nouveau tableau en fusionnant tous les ustensiles du tableau en une chaine de caractères
   accordionUstensils.innerHTML = `
     ${ustensilsSort
       .map(

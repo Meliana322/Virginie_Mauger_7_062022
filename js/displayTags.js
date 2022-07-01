@@ -1,12 +1,9 @@
 import { displayCardsRecipes } from "./displayCardsRecipes.js";
-import { filterByTag } from "./searchBar.js";
+import { filterData } from "./displayCardsRecipes.js";
 
-// tags
+// Affichage des tags
 const tagsDropdowns = document.querySelector(".tag");
-let arrayTags = [];
-// let filteredRecipe = filterData(result);
-export function displayTags(recipeArr) {
-  // Tableau de toutes les recettes
+export function displayTags(recipeArr, arrayTags) {
   const listDropdowns = document.querySelectorAll(".list-dropdown li");
   listDropdowns.forEach((el) => {
     el.addEventListener("click", (e) => {
@@ -28,15 +25,7 @@ export function displayTags(recipeArr) {
         });
       }
 
-      // Tableau de toutes les recettes
-      let filteredRecipe = [...recipeArr];
-
-      // Boucle sur arrayTags
-      for (let i = 0; i < arrayTags.length; i++) {
-        filteredRecipe = filterByTag(arrayTags[i], filteredRecipe);
-      }
-
-      displayCardsRecipes(filteredRecipe);
+      resultFilterTag(recipeArr, arrayTags);
 
       // ! REMOVE TAGS
       if (tagElement.classList.contains("click")) {
@@ -49,19 +38,70 @@ export function displayTags(recipeArr) {
             (tagObj) => tagObj.value !== tagElement.textContent
           );
 
-          // Tableau de toutes les recettes
-          filteredRecipe = [...recipeArr];
-          for (let i = 0; i < arrayTags.length; i++) {
-            filteredRecipe = filterByTag(arrayTags[i], filteredRecipe);
-
-            // console.log(arrayTags);
-          }
-          displayCardsRecipes(filteredRecipe);
-          // console.log(arrayTags);
+          // Tableau des recettes filtrées
+          resultFilterTag(recipeArr, arrayTags);
         });
-        // );
         tagElement.classList.remove("click");
       }
     });
   });
+}
+
+// Filtre les recettes en fonction de la catégorie et de la valeur
+export function filterByTag(tagObj, recipeArr) {
+  let filteredArr = [];
+  switch (tagObj.category) {
+    // Si l'objet appartient à la category "ingredients"
+    case "ingredients":
+      // Prend le tableau des recettes et boucle sur chaque recette
+      filteredArr = recipeArr.filter((recipe) =>
+        // Dans la recette j'ai une chaine de caractères
+        recipe.ingredients.some((ingredient) =>
+          //Si cette chaine de caractères est présente renvoie sa valeur
+          ingredient.ingredient
+            .toLowerCase()
+            .includes(tagObj.value.toLowerCase())
+        )
+      );
+      break;
+
+    // Si l'objet appartient à la category "appliances"
+    case "appliances":
+      // Prend le tableau des recettes et boucle sur chaque recette
+      filteredArr = recipeArr.filter((recipe) =>
+        // Dans la recette j'ai une chaine de caractères
+        //Si cette chaine de caractères est présente renvoie sa valeur
+        recipe.appliance.toLowerCase().includes(tagObj.value.toLowerCase())
+      );
+      break;
+
+    // Si l'objet appartient à la category "ustensils"
+    case "ustensils":
+      // Prend le tableau des recettes et boucle sur chaque recette
+      filteredArr = recipeArr.filter((recipe) =>
+        // Dans la recette j'ai une chaine de caractères
+        recipe.ustensils.some((ustensil) =>
+          //Si cette chaine de caractères est présente renvoie sa valeur
+          ustensil.toLowerCase().includes(tagObj.value.toLowerCase())
+        )
+      );
+      break;
+  }
+  return filteredArr;
+}
+
+export function resultFilterTag(recipeArr, arrayTags) {
+  // let filteredRecipe = [...recipeArr];
+  let filteredRecipe = filterData(
+    document.querySelector("#search-field").value,
+    recipeArr
+  );
+  // Boucle sur arrayTags
+  for (let i = 0; i < arrayTags.length; i++) {
+    filteredRecipe = filterByTag(arrayTags[i], filteredRecipe);
+  }
+
+  displayCardsRecipes(filteredRecipe);
+
+  return filteredRecipe;
 }

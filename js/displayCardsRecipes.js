@@ -1,3 +1,4 @@
+// Affichage des cartes de recettes
 export function displayCardsRecipes(recipes) {
   const recipesContainer = document.querySelector(".recipes-container");
 
@@ -49,27 +50,20 @@ export function displayCardsRecipes(recipes) {
   });
 }
 
-//let searchInput = document.querySelector("#search-field");
-// searchInput.addEventListener("input", function (e) {
-//   // trim() retire les blancs en dédut et fin de chaine
-//   if (searchInput.value.trim().length > 2) {
-//     const result = filterData(e.target.value, recipes);
-//     if (result.length === 0) {
-//       console.log("Aucune recette ne correspond à votre critère...");
-//     } else {
-//       displayCardsRecipes(result);
-//     }
-//   }
-// });
-
+// ! SearchBar
+// Filtre les recettes en fonction du texte entré dans la barre de recherche
 export function filterData(inputText, recipeArray) {
   const searchedString = inputText.toLowerCase();
+  // Filtre le tableau de recette en fonction de:
   let filteredArr = recipeArray.filter(
     (recipe) =>
+      // Nom de la recette qui contient l'entrée dans la barre de recherche ou
       recipe.name.toLowerCase().includes(searchedString) ||
+      // La descritption de la recette qui contient l'entrée dans la barre de recherche ou
       recipe.description.toLowerCase().includes(searchedString) ||
       // si le tableau "ingredients" contient une ou plusieurs valeurs "ingrédient" renvoie true
       recipe.ingredients.some((element) =>
+        // L'ingrédient de la recette qui contient l'entrée dans la barre de recherche
         element.ingredient.toLowerCase().includes(searchedString)
       )
   );

@@ -1,4 +1,4 @@
-//mise à jour de la liste de mots au fur et à mesure de la saisie
+// Mise à jour de la liste de mots au fur et à mesure de la saisie
 export function updateWordList() {
   const searchFields = document.querySelectorAll(".accordion-item");
 
