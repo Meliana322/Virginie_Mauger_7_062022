@@ -23,6 +23,8 @@ export function displayTags(recipeArr, arrayTags) {
           category: tagElement.parentNode.id,
           value: tagElement.textContent,
         });
+        // Ajout de la classe de chaque catégorie
+        listTags.classList.add(tagElement.parentNode.id);
       }
 
       resultFilterTag(recipeArr, arrayTags);

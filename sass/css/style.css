@@ -39,7 +39,7 @@ input::placeholder {
 }
 
 .accordion-body ul {
-  max-height: 400px;
+  max-height: 430px;
   overflow-x: scroll;
 }
 
@@ -109,6 +109,58 @@ form #basic-addon4::after {
 
 .form-control:focus {
   box-shadow: unset !important;
+}
+
+.container-tags {
+  margin: 20px 0;
+}
+.container-tags .tag {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li.tag-list {
+  width: max-content;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+li.tag-list.ingredients {
+  background-color: #3282f7;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+li.tag-list.appliances {
+  background-color: #68d9a4;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+li.tag-list.ustensils {
+  background-color: #ed6454;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+li.tag-list i.fa-times-circle:before {
+  color: white;
+  margin-left: 10px;
+  margin-right: -10px;
+}
+
+.input-group-text {
+  padding-right: 0.5rem;
+}
+
+.ps-4 {
+  padding-left: 0.8rem !important;
+  padding-right: 0.1rem;
 }
 
 .card {
@@ -254,6 +306,7 @@ button {
 /* Reset End*/
 body {
   font-family: "Lato", sans-serif;
+  margin: 50px;
 }
 
 button {
@@ -294,6 +347,20 @@ input#search-field:focus {
   flex-wrap: wrap;
   margin-top: 2rem;
   gap: 60px;
+  justify-content: space-between;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: unset;
+    padding-right: unset;
+    padding-left: unset;
+  }
+}
+@media (max-width: 992px) {
+  .recipes-container {
+    justify-content: center !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
