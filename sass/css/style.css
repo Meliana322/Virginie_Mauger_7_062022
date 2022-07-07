@@ -126,6 +126,7 @@ li.tag-list {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
+  background-color: #3282f7;
 }
 li.tag-list.ingredients {
   background-color: #3282f7;

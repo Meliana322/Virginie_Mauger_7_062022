@@ -31,8 +31,23 @@ inputTagsIngredients.addEventListener("focus", () => {
 });
 
 let arrayTags = [];
+// Affiche les tags dans le container
+const listDropdowns = document.querySelectorAll(".list-dropdown li");
+listDropdowns.forEach((el) => {
+  // Pour chaque élément de la liste de tags
+  el.addEventListener("click", (e) => {
+    // Au click sur un élément
+    const tagElement = e.target; // La cible
+    console.log(tagElement);
+    displayTags(tagElement, arrayTags);
+    arrayTags.push({
+      category: tagElement.parentNode.id,
+      value: tagElement.textContent,
+    });
+  });
+});
 
-displayTags(recipes, arrayTags); // Affichage / Fermeture des tags et des recettes en fonction des choix utilisateur
+// displayTags(recipes, arrayTags); // Affichage / Fermeture des tags et des recettes en fonction des choix utilisateur
 
 const recipesContainer = document.querySelector(".recipes-container");
 
@@ -55,6 +70,7 @@ searchInput.addEventListener("input", function (e) {
       recipesContainer.appendChild(errorMessage);
     } else {
       displayCardsRecipes(filteredRecipe);
+      displayDropdown(filteredRecipe);
     }
   }
 });

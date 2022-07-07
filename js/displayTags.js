@@ -1,52 +1,62 @@
 import { displayCardsRecipes } from "./displayCardsRecipes.js";
+import { displayDropdown } from "./displayDropdowns.js";
 import { filterData } from "./displayCardsRecipes.js";
 
 // Affichage des tags
 const tagsDropdowns = document.querySelector(".tag");
-export function displayTags(recipeArr, arrayTags) {
-  const listDropdowns = document.querySelectorAll(".list-dropdown li");
-  listDropdowns.forEach((el) => {
-    el.addEventListener("click", (e) => {
-      const tagElement = e.target;
-      let listTags;
+// export function displayTags(recipeArr, arrayTags) {
+//   const listDropdowns = document.querySelectorAll(".list-dropdown li");
+//   listDropdowns.forEach((el) => {
+//     el.addEventListener("click", (e) => {
+//       const tagElement = e.target;
+//       let listTags;
 
-      // Récupère le texte du mot cliqué
-      if (!tagElement.classList.contains("click")) {
-        listTags = document.createElement("li");
-        listTags.classList.add("tag-list");
-        tagsDropdowns.appendChild(listTags);
-        // Ajout le bouton et l'icone de fermeture au container Tag
-        listTags.innerHTML = `${tagElement.textContent}<button type="button" class="close-tag" aria-label="close-tag"><i class="far fa-times-circle"></i></button>`;
-        tagElement.classList.add("click");
+//       // Récupère le texte du mot cliqué
+//       if (!tagElement.classList.contains("click")) {
+//         listTags = document.createElement("li");
+//         listTags.classList.add("tag-list");
+//         tagsDropdowns.appendChild(listTags);
+//         // Ajout le bouton et l'icone de fermeture au container Tag
+//         listTags.innerHTML = `${tagElement.textContent}<button type="button" class="close-tag" aria-label="close-tag"><i class="far fa-times-circle"></i></button>`;
+//         tagElement.classList.add("click");
 
-        arrayTags.push({
-          category: tagElement.parentNode.id,
-          value: tagElement.textContent,
-        });
-        // Ajout de la classe de chaque catégorie
-        listTags.classList.add(tagElement.parentNode.id);
-      }
+//         arrayTags.push({
+//           category: tagElement.parentNode.id,
+//           value: tagElement.textContent,
+//         });
+//         // Ajout de la classe de chaque catégorie
+//         listTags.classList.add(tagElement.parentNode.id);
+//       }
 
-      resultFilterTag(recipeArr, arrayTags);
+//       resultFilterTag(recipeArr, arrayTags);
 
-      // ! REMOVE TAGS
-      if (tagElement.classList.contains("click")) {
-        const closesButton = listTags.querySelector(".close-tag");
-        closesButton.addEventListener("click", (e) => {
-          const tagsContainer = e.target.parentNode.parentNode;
-          tagsContainer.remove();
+//       // ! REMOVE TAGS
+//       if (tagElement.classList.contains("click")) {
+//         const closesButton = listTags.querySelector(".close-tag");
+//         closesButton.addEventListener("click", (e) => {
+//           const tagsContainer = e.target.parentNode.parentNode;
+//           tagsContainer.remove();
 
-          arrayTags = arrayTags.filter(
-            (tagObj) => tagObj.value !== tagElement.textContent
-          );
+//           arrayTags = arrayTags.filter(
+//             (tagObj) => tagObj.value !== tagElement.textContent
+//           );
 
-          // Tableau des recettes filtrées
-          resultFilterTag(recipeArr, arrayTags);
-        });
-        tagElement.classList.remove("click");
-      }
-    });
-  });
+//           // Tableau des recettes filtrées
+//           resultFilterTag(recipeArr, arrayTags);
+//         });
+//         tagElement.classList.remove("click");
+//       }
+//     });
+//   });
+// }
+export function displayTags(tagElement) {
+  let listTags = document.createElement("li");
+  listTags.classList.add("tag-list");
+  tagsDropdowns.appendChild(listTags);
+  listTags.innerHTML = `${tagElement.textContent}<button type="button" class="close-tag" aria-label="close-tag"><i class="far fa-times-circle"></i></button>`;
+  tagElement.classList.add("click");
+  // Ajout de la classe de chaque catégorie
+  listTags.classList.add(tagElement.parentNode.id);
 }
 
 // Filtre les recettes en fonction de la catégorie et de la valeur
@@ -93,7 +103,6 @@ export function filterByTag(tagObj, recipeArr) {
 }
 
 export function resultFilterTag(recipeArr, arrayTags) {
-  // let filteredRecipe = [...recipeArr];
   let filteredRecipe = filterData(
     document.querySelector("#search-field").value,
     recipeArr
@@ -104,6 +113,6 @@ export function resultFilterTag(recipeArr, arrayTags) {
   }
 
   displayCardsRecipes(filteredRecipe);
-
+  displayDropdown(filteredRecipe);
   return filteredRecipe;
 }

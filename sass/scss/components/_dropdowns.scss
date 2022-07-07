@@ -94,6 +94,7 @@ li.tag-list {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
+  background-color: $color-primary;
 
   &.ingredients {
     background-color: $color-primary;
