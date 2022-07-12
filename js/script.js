@@ -31,29 +31,59 @@ inputTagsIngredients.addEventListener("focus", () => {
 });
 
 let arrayTags = [];
-// Affiche les tags dans le container
-const listDropdowns = document.querySelectorAll(".list-dropdown li");
-listDropdowns.forEach((el) => {
-  // Pour chaque élément de la liste de tags
-  el.addEventListener("click", (e) => {
-    // Au click sur un élément
-    const tagElement = e.target; // La cible
-    console.log(tagElement);
-    displayTags(tagElement, arrayTags);
-    arrayTags.push({
-      category: tagElement.parentNode.id,
-      value: tagElement.textContent,
+
+function temp() {
+  const listDropdowns = document.querySelectorAll(".list-dropdown li");
+  const listTags = document.querySelectorAll(".tag-list");
+  console.log(listTags);
+  listDropdowns.forEach((el) => {
+    // Pour chaque élément de la liste de tags
+    el.addEventListener("click", (e) => {
+      // Au click sur un élément
+      const tagElement = e.target; // La cible
+      console.log(tagElement);
+      tagElement.classList.add("click");
+
+      displayTags(tagElement);
+      arrayTags.push({
+        category: tagElement.parentNode.id,
+        value: tagElement.textContent,
+      });
+      resultFilterTag(filteredRecipe, arrayTags);
+      temp();
     });
   });
-});
+}
+// /////////////////////////////////////////////////
+// Affiche les tags dans le container
+const listDropdowns = document.querySelectorAll(".list-dropdown li");
+const listTags = document.querySelectorAll(".tag-list");
+console.log(listTags);
+temp();
+// listDropdowns.forEach((el) => {
+//   // Pour chaque élément de la liste de tags
+//   el.addEventListener("click", (e) => {
+//     // Au click sur un élément
+//     const tagElement = e.target; // La cible
+//     console.log(tagElement);
+//     tagElement.classList.add("click");
 
+//     displayTags(tagElement);
+//     arrayTags.push({
+//       category: tagElement.parentNode.id,
+//       value: tagElement.textContent,
+//     });
+//     resultFilterTag(filteredRecipe, arrayTags);
+//   });
+// });
+// /////////////////////////////////////////////////
 // displayTags(recipes, arrayTags); // Affichage / Fermeture des tags et des recettes en fonction des choix utilisateur
 
 const recipesContainer = document.querySelector(".recipes-container");
 
 let searchInput = document.querySelector("#search-field");
 
-// Affichage des recettes en fonction de la barre de recherche
+// ! Affichage des recettes en fonction de la barre de recherche
 searchInput.addEventListener("input", function (e) {
   // trim() retire les blancs en dédut et fin de chaine
   if (searchInput.value.trim().length > 2) {
@@ -71,6 +101,7 @@ searchInput.addEventListener("input", function (e) {
     } else {
       displayCardsRecipes(filteredRecipe);
       displayDropdown(filteredRecipe);
+      temp();
     }
   }
 });

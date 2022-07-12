@@ -49,15 +49,18 @@ const tagsDropdowns = document.querySelector(".tag");
 //     });
 //   });
 // }
+
+///////////////////////////////////////////////
+// ! Affichage des tags
 export function displayTags(tagElement) {
   let listTags = document.createElement("li");
   listTags.classList.add("tag-list");
   tagsDropdowns.appendChild(listTags);
   listTags.innerHTML = `${tagElement.textContent}<button type="button" class="close-tag" aria-label="close-tag"><i class="far fa-times-circle"></i></button>`;
-  tagElement.classList.add("click");
   // Ajout de la classe de chaque catégorie
   listTags.classList.add(tagElement.parentNode.id);
 }
+////////////////////////////////////////////////
 
 // Filtre les recettes en fonction de la catégorie et de la valeur
 export function filterByTag(tagObj, recipeArr) {
@@ -114,5 +117,6 @@ export function resultFilterTag(recipeArr, arrayTags) {
 
   displayCardsRecipes(filteredRecipe);
   displayDropdown(filteredRecipe);
+  // displayTags(filteredRecipe, arrayTags);
   return filteredRecipe;
 }

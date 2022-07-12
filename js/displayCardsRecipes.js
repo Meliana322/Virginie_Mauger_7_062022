@@ -70,6 +70,9 @@ export function filterData(inputText, recipeArray) {
   );
   return filteredArr;
 }
+
+// ! DEUXIEME ALGORITHME
+
 // export function filterData(inputText, recipeArray) {
 //   const searchedString = inputText.toLowerCase().split();
 //   let filteredArr = [];
