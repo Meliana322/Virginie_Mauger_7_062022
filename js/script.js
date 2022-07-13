@@ -54,29 +54,30 @@ function temp() {
       });
       resultFilterTag(filteredRecipe, arrayTags);
       temp();
+      console.log(arrayTags);
     });
-    // ! REMOVE TAGS
-    console.log(arrayTags);
-    const closeBtnArray = [...document.querySelectorAll(".close-tag")];
+  });
+  // ! REMOVE TAGS
+  console.log(arrayTags);
+  const closeBtnArray = [...document.querySelectorAll(".close-tag")];
 
-    closeBtnArray.forEach((closeBtn) => {
-      closeBtn.addEventListener("click", (e) => {
-        const tagsContainer = e.target.parentNode.parentNode;
-        const textTag = e.target.parentNode.parentNode.textContent;
-        console.log(textTag);
-        tagsContainer.remove();
-        console.log(arrayTags);
-        // supprimer le bon tag dans 'arrayTags'
+  closeBtnArray.forEach((closeBtn) => {
+    closeBtn.addEventListener("click", (e) => {
+      const tagsContainer = e.target.parentNode.parentNode;
+      const textTag = e.target.parentNode.parentNode.textContent;
+      console.log(textTag);
+      tagsContainer.remove();
+      console.log(arrayTags);
+      // supprimer le bon tag dans 'arrayTags'
 
-        arrayTags = arrayTags.filter(
-          (tagObj) => tagObj.value !== tagsContainer.textContent
-        );
+      arrayTags = arrayTags.filter(
+        (tagObj) => tagObj.value !== tagsContainer.textContent
+      );
 
-        // relancer le rendu "resultFilterTag"
+      // relancer le rendu "resultFilterTag"
 
-        resultFilterTag(filteredRecipe, arrayTags);
-        temp();
-      });
+      resultFilterTag(filteredRecipe, arrayTags);
+      temp();
     });
   });
 }
