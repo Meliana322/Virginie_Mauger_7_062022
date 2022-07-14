@@ -320,9 +320,18 @@ input,
   border: none !important;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+}
+.header .logo {
+  width: 60px;
+}
+
 .header-h1 {
   font-family: "DM Sans", sans-serif;
   text-align: center;
+  color: #d04f4f;
 }
 
 #basic-addon1 {
