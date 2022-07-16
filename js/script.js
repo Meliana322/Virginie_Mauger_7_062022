@@ -34,8 +34,7 @@ let arrayTags = [];
 
 function temp() {
   const listDropdowns = document.querySelectorAll(".list-dropdown li");
-  // const listTags = document.querySelectorAll(".tag-list");
-  // console.log(listTags);
+
   listDropdowns.forEach((el) => {
     // Pour chaque élément de la liste de tags
     el.addEventListener("click", (e) => {
@@ -95,6 +94,10 @@ let searchInput = document.querySelector("#search-field");
 // ! Affichage des recettes en fonction de la barre de recherche
 searchInput.addEventListener("input", function (e) {
   // trim() retire les blancs en dédut et fin de chaine
+  if (searchInput.value.trim().length >= 0) {
+    displayCardsRecipes(recipes);
+    displayDropdown(recipes);
+  }
   if (searchInput.value.trim().length > 2) {
     filteredRecipe = filterData(
       e.target.value,
