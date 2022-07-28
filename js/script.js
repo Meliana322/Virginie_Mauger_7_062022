@@ -32,7 +32,7 @@ inputTagsIngredients.addEventListener("focus", () => {
 
 let arrayTags = [];
 
-function temp() {
+function selectionListDropdown() {
   const listDropdowns = document.querySelectorAll(".list-dropdown li");
 
   listDropdowns.forEach((el) => {
@@ -52,7 +52,7 @@ function temp() {
         value: tagElement.textContent,
       });
       resultFilterTag(filteredRecipe, arrayTags);
-      temp();
+      selectionListDropdown();
     });
   });
   // ! REMOVE TAGS
@@ -70,11 +70,11 @@ function temp() {
 
       // relancer le rendu "resultFilterTag"
       resultFilterTag(filteredRecipe, arrayTags);
-      temp();
+      selectionListDropdown();
     });
   });
 }
-temp();
+selectionListDropdown();
 
 const recipesContainer = document.querySelector(".recipes-container");
 
@@ -102,7 +102,7 @@ searchInput.addEventListener("input", function (e) {
     } else {
       displayCardsRecipes(filteredRecipe);
       displayDropdown(filteredRecipe);
-      temp();
+      selectionListDropdown();
     }
   }
 });
