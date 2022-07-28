@@ -1,4 +1,3 @@
-// import { recipes } from "./recipes.js";
 // Affichage des cartes de recettes
 export function displayCardsRecipes(recipes) {
   const recipesContainer = document.querySelector(".recipes-container");
@@ -70,22 +69,3 @@ export function filterData(inputText, recipeArray) {
   );
   return filteredArr;
 }
-
-// ! DEUXIEME ALGORITHME
-
-// export function filterData(inputText, recipeArray) {
-//   const searchedString = inputText.toLowerCase().split();
-//   let filteredArr = [];
-//   for (let i = 0; i < recipeArray.length; i++) {
-//     if (
-//       recipeArray[i].name.toLowerCase().includes(searchedString) ||
-//       recipeArray[i].description.toLowerCase().includes(searchedString) ||
-//       recipeArray[i].ingredients.some((element) =>
-//         element.ingredient.toLowerCase().includes(searchedString)
-//       )
-//     ) {
-//       filteredArr.push(recipeArray[i]);
-//     }
-//   }
-//   return filteredArr;
-// }

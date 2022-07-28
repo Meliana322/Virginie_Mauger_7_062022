@@ -40,7 +40,7 @@ function temp() {
     el.addEventListener("click", (e) => {
       // Au click sur un élément
       const tagElement = e.target; // La cible
-      console.log(tagElement);
+
       // Ajoute la classe "click" à l'élément de la liste ciblé
       tagElement.classList.add("click");
 
@@ -53,39 +53,28 @@ function temp() {
       });
       resultFilterTag(filteredRecipe, arrayTags);
       temp();
-      console.log(arrayTags);
     });
   });
   // ! REMOVE TAGS
-  console.log(arrayTags);
   const closeBtnArray = [...document.querySelectorAll(".close-tag")];
 
   closeBtnArray.forEach((closeBtn) => {
     closeBtn.addEventListener("click", (e) => {
       const tagsContainer = e.target.parentNode.parentNode;
-      const textTag = e.target.parentNode.parentNode.textContent;
-      console.log(textTag);
       tagsContainer.remove();
-      console.log(arrayTags);
-      // supprimer le bon tag dans 'arrayTags'
 
+      // supprimer le bon tag dans 'arrayTags'
       arrayTags = arrayTags.filter(
         (tagObj) => tagObj.value !== tagsContainer.textContent
       );
 
       // relancer le rendu "resultFilterTag"
-
       resultFilterTag(filteredRecipe, arrayTags);
       temp();
     });
   });
 }
-// /////////////////////////////////////////////////
-// const listTags = document.querySelectorAll(".tag-list");
-// console.log(listTags);
 temp();
-
-// /////////////////////////////////////////////////
 
 const recipesContainer = document.querySelector(".recipes-container");
 

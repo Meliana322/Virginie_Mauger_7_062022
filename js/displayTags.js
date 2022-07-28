@@ -71,6 +71,5 @@ export function resultFilterTag(recipeArr, arrayTags) {
 
   displayCardsRecipes(filteredRecipe);
   displayDropdown(filteredRecipe);
-  // displayTags(filteredRecipe, arrayTags);
   return filteredRecipe;
 }
