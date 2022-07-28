@@ -197,11 +197,11 @@ li.tag-list i.fa-times-circle:before {
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   white-space: normal;
-  line-height: 2vh;
+  line-height: 1.1vh;
 }
 
 .ingredientsRecipe {
-  line-height: 2.1vh;
+  line-height: 1.1vh;
   font-size: 12px;
 }
 .ingredientsRecipe ul li {
@@ -357,7 +357,10 @@ input#search-field:focus {
   flex-wrap: wrap;
   margin-top: 2rem;
   gap: 60px;
-  justify-content: space-between;
+  justify-content: center;
+}
+.recipes-container p.error {
+  font-size: 24px !important;
 }
 
 @media (min-width: 1400px) {

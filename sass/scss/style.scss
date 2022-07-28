@@ -139,7 +139,11 @@ input#search-field:focus {
   flex-wrap: wrap;
   margin-top: 2rem;
   gap: 60px;
-  justify-content: space-between;
+  justify-content: center;
+
+  p.error {
+    font-size: 24px !important;
+  }
 }
 @media (min-width: 1400px) {
   .container {

@@ -96,8 +96,7 @@ searchInput.addEventListener("input", function (e) {
       recipesContainer.innerHTML = "";
       const errorMessage = document.createElement("p");
       errorMessage.classList.add("error");
-      errorMessage.textContent =
-        "Aucune recette ne correspond à votre critère...";
+      errorMessage.textContent = "Aucune recette ne correspond à votre critère";
       recipesContainer.appendChild(errorMessage);
     } else {
       displayCardsRecipes(filteredRecipe);
