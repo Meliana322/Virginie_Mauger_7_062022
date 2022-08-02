@@ -50,23 +50,22 @@ export function displayCardsRecipes(recipes) {
   });
 }
 
-// ! SearchBar Algorithme 1
+// ! SearchBar Algorithme 2
 
 // Filtre les recettes en fonction du texte entré dans la barre de recherche
 export function filterData(inputText, recipeArray) {
-  const searchedString = inputText.toLowerCase();
-  // Filtre le tableau de recette en fonction de:
-  let filteredArr = recipeArray.filter(
-    (recipe) =>
-      // Nom de la recette qui contient l'entrée dans la barre de recherche ou
-      recipe.name.toLowerCase().includes(searchedString) ||
-      // La descritption de la recette qui contient l'entrée dans la barre de recherche ou
-      recipe.description.toLowerCase().includes(searchedString) ||
-      // si le tableau "ingredients" contient une ou plusieurs valeurs "ingrédient" renvoie true
-      recipe.ingredients.some((element) =>
-        // L'ingrédient de la recette qui contient l'entrée dans la barre de recherche
+  const searchedString = inputText.toLowerCase().split();
+  let filteredArr = [];
+  for (let i = 0; i < recipeArray.length; i++) {
+    if (
+      recipeArray[i].name.toLowerCase().includes(searchedString) ||
+      recipeArray[i].description.toLowerCase().includes(searchedString) ||
+      recipeArray[i].ingredients.some((element) =>
         element.ingredient.toLowerCase().includes(searchedString)
       )
-  );
+    ) {
+      filteredArr.push(recipeArray[i]);
+    }
+  }
   return filteredArr;
 }
