@@ -83,9 +83,14 @@ let searchInput = document.querySelector("#search-field");
 // ! Affichage des recettes en fonction de la barre de recherche
 searchInput.addEventListener("input", function (e) {
   // trim() retire les blancs en dédut et fin de chaine
-  if (searchInput.value.trim().length >= 0) {
-    displayCardsRecipes(recipes);
-    displayDropdown(recipes);
+  if (
+    searchInput.value.trim().length >= 0 &&
+    searchInput.value.trim().length <= 2
+  ) {
+    filteredRecipe = [...recipes];
+    displayCardsRecipes(filteredRecipe);
+    displayDropdown(filteredRecipe);
+    selectionListDropdown();
   }
   if (searchInput.value.trim().length > 2) {
     filteredRecipe = filterData(
