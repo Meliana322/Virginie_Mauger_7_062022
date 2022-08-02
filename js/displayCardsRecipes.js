@@ -50,7 +50,8 @@ export function displayCardsRecipes(recipes) {
   });
 }
 
-// ! SearchBar
+// ! SearchBar Algorithme 1
+
 // Filtre les recettes en fonction du texte entré dans la barre de recherche
 export function filterData(inputText, recipeArray) {
   const searchedString = inputText.toLowerCase();
