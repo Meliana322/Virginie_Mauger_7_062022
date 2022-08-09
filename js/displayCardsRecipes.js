@@ -58,14 +58,24 @@ export function filterData(inputText, recipeArray) {
   let filteredArr = [];
   for (let i = 0; i < recipeArray.length; i++) {
     if (
-      recipeArray[i].name.toLowerCase().includes(searchedString) ||
-      recipeArray[i].description.toLowerCase().includes(searchedString) ||
+      strIncludes(recipeArray[i].name.toLowerCase(), searchedString) ||
+      strIncludes(recipeArray[i].description.toLowerCase(), searchedString) ||
       recipeArray[i].ingredients.some((element) =>
-        element.ingredient.toLowerCase().includes(searchedString)
+        strIncludes(element.ingredient.toLowerCase(), searchedString)
       )
     ) {
       filteredArr.push(recipeArray[i]);
     }
   }
   return filteredArr;
+}
+
+function strIncludes(str1, str2) {
+  const myRegex = new RegExp(`${str2}`, "g");
+
+  if (myRegex.test(str1)) {
+    return true;
+  } else {
+    return false;
+  }
 }
