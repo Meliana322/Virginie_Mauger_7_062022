@@ -124,7 +124,6 @@ input,
   border: unset;
 }
 
-// search bar
 .input-group {
   height: 69px;
 }
@@ -132,7 +131,9 @@ input,
 input#search-field:focus {
   box-shadow: unset;
 }
+
 // Tags
+
 .row.d-flex.justify-content-center.justify-content-xl-start.dropdowns {
   position: absolute;
   z-index: 5;
@@ -151,20 +152,37 @@ input#search-field:focus {
     font-size: 24px !important;
   }
 }
-
-@media screen and (max-width: 992px) {
-  .recipes-container {
-    justify-content: center;
-    padding: unset !important;
-  }
-}
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .container {
     padding: unset !important;
     max-width: 100%;
   }
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    padding: unset !important;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .search-by {
+    display: flex;
+    justify-content: center;
+  }
+  .row.d-flex.justify-content-center.justify-content-xl-start.dropdowns {
+    margin-top: 8%;
+    width: 80%;
+  }
+  .container {
+    padding: unset !important;
+    max-width: 100%;
+  }
+  .container-tags {
+    margin: 20px 0 0 0;
+  }
   .recipes-container {
-    margin-top: 15rem;
+    margin-top: 19rem;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -172,10 +190,40 @@ input#search-field:focus {
     padding: unset !important;
     max-width: 100%;
   }
+  .container-tags {
+    margin: 20px 0 0 0;
+  }
 }
-@media screen and (max-width: 1400px) {
-  .container {
+
+@media screen and (max-width: 992px) {
+  .recipes-container {
+    justify-content: center;
     padding: unset !important;
     max-width: 100%;
+    align-items: center;
+  }
+  .recipes-container {
+    margin-top: 15rem;
+  }
+
+  .search-by {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+  .row.d-flex.justify-content-center.justify-content-xl-start.dropdowns {
+    margin-top: 40%;
+  }
+  .container-tags {
+    margin-bottom: 10%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .row.d-flex.justify-content-center.justify-content-xl-start.dropdowns {
+    margin-top: 60%;
+  }
+  .recipes-container {
+    margin-top: 15rem;
   }
 }
