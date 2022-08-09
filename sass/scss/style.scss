@@ -132,12 +132,17 @@ input,
 input#search-field:focus {
   box-shadow: unset;
 }
+// Tags
+.row.d-flex.justify-content-center.justify-content-xl-start.dropdowns {
+  position: absolute;
+  z-index: 5;
+}
 
 // Section recipes-container
 .recipes-container {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 8rem;
   gap: 60px;
   justify-content: space-between;
 
@@ -156,6 +161,7 @@ input#search-field:focus {
   .container {
     max-width: 1200px;
     padding: unset;
+    position: relative;
   }
 }
 
