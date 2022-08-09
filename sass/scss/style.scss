@@ -146,11 +146,21 @@ input#search-field:focus {
     font-size: 24px !important;
   }
 }
-@media screen and (max-width: 768px) {
-}
-
 @media screen and (max-width: 992px) {
   .recipes-container {
     justify-content: center;
+    padding: unset !important;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: unset !important;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: unset !important;
+    max-width: 100%;
   }
 }
