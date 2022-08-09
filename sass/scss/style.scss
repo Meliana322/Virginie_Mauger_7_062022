@@ -132,11 +132,6 @@ input,
 input#search-field:focus {
   box-shadow: unset;
 }
-// Tags
-.row.d-flex.justify-content-center.justify-content-xl-start.dropdowns {
-  position: absolute;
-  z-index: 5;
-}
 
 // Section recipes-container
 .recipes-container {
@@ -150,23 +145,21 @@ input#search-field:focus {
     font-size: 24px !important;
   }
 }
-@media (min-width: 1400px) {
-  .container {
-    max-width: unset;
-    padding-right: unset;
-    padding-left: unset;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-    padding: unset;
-    position: relative;
-  }
-}
-
-@media (max-width: 992px) {
+@media screen and (max-width: 992px) {
   .recipes-container {
-    justify-content: center !important;
+    justify-content: center;
+    padding: unset !important;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: unset !important;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: unset !important;
+    max-width: 100%;
   }
 }
